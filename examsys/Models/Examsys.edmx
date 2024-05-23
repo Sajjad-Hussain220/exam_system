@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_examsysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_COURSE">
+          <Key>
+            <PropertyRef Name="Course_Code" />
+          </Key>
+          <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Course_Type" Type="varchar" MaxLength="20" />
+          <Property Name="Credit_Hr" Type="int" />
+          <Property Name="Req_Req" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_DEPARTMENT">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="D_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_EXAM">
+          <Key>
+            <PropertyRef Name="Room_no" />
+          </Key>
+          <Property Name="Room_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Exam_Type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_RESULT">
+          <Key>
+            <PropertyRef Name="Sem_ID" />
+            <PropertyRef Name="Course_Code" />
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="Exam_ID" />
+          </Key>
+          <Property Name="Sem_ID" Type="int" Nullable="false" />
+          <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="St_ID" Type="int" Nullable="false" />
+          <Property Name="Exam_ID" Type="int" Nullable="false" />
+          <Property Name="Marks" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Grade" Type="varchar" MaxLength="2" />
+          <Property Name="Result_Date" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_SEMESTER_DETAILS">
+          <Key>
+            <PropertyRef Name="Sem_ID" />
+          </Key>
+          <Property Name="Sem_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Course_Code" Type="varchar" MaxLength="10" />
+          <Property Name="T_ID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT">
+          <Key>
+            <PropertyRef Name="St_ID" />
+          </Key>
+          <Property Name="St_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Fee_Payment" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT_AUDIT">
+          <Key>
+            <PropertyRef Name="Audit_ID" />
+          </Key>
+          <Property Name="Audit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="St_ID" Type="int" />
+          <Property Name="ChangeType" Type="varchar" MaxLength="50" />
+          <Property Name="ChangeDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT_SEMESTER">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="Sem_ID" />
+          </Key>
+          <Property Name="St_ID" Type="int" Nullable="false" />
+          <Property Name="Sem_ID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_TEACHER">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="T_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="D_ID" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_examsys.dbo.vw_ExamResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_ExamResults">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="St_Name" />
+            <PropertyRef Name="Course_Code" />
+            <PropertyRef Name="Course_Name" />
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Exam_Type" />
+          </Key>
+          <Property Name="St_ID" Type="int" Nullable="false" />
+          <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Exam_ID" Type="int" Nullable="false" />
+          <Property Name="Exam_Type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Marks" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Grade" Type="varchar" MaxLength="2" />
+          <Property Name="Result_Date" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_examsys.dbo.vw_StudentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_StudentDetails">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="St_Name" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Course_Name" />
+          </Key>
+          <Property Name="St_ID" Type="int" Nullable="false" />
+          <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Fee_Payment" Type="bit" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Course_Type" Type="varchar" MaxLength="20" />
+          <Property Name="Credit_Hr" Type="int" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <Association Name="FK__tbl_RESUL__Cours__18EBB532">
+          <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_COURSE">
+              <PropertyRef Name="Course_Code" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Course_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__Exam___19DFD96B">
+          <End Role="tbl_EXAM" Type="Self.tbl_EXAM" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_EXAM">
+              <PropertyRef Name="Room_no" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Exam_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__Sem_I__17F790F9">
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Sem_ID" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Sem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__St_ID__17036CC0">
+          <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_STUDENT">
+              <PropertyRef Name="St_ID" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="St_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_SEMES__Cours__60A75C0F">
+          <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_COURSE">
+              <PropertyRef Name="Course_Code" />
+            </Principal>
+            <Dependent Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Course_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_SEMEST__T_ID__619B8048">
+          <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TEACHER">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="T_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_STUDE__Sem_I__656C112C">
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Sem_ID" />
+            </Principal>
+            <Dependent Role="tbl_STUDENT_SEMESTER">
+              <PropertyRef Name="Sem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_STUDE__St_ID__6477ECF3">
+          <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_STUDENT">
+              <PropertyRef Name="St_ID" />
+            </Principal>
+            <Dependent Role="tbl_STUDENT_SEMESTER">
+              <PropertyRef Name="St_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_TEACHE__D_ID__5BE2A6F2">
+          <End Role="tbl_DEPARTMENT" Type="Self.tbl_DEPARTMENT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_DEPARTMENT">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="tbl_TEACHER">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_CalculateTotalMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+          <Parameter Name="St_ID" Type="int" Mode="In" />
+          <Parameter Name="Sem_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="fn_GetPaidStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="St_ID" Type="int" Nullable="false" />
+                <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+                <Property Name="Contact" Type="varchar" MaxLength="20" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_DeleteStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="St_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetActiveAndInactiveCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetStudentsEnrolledInBothCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseCode1" Type="varchar" Mode="In" />
+          <Parameter Name="CourseCode2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetStudentsEnrolledInOneCourseOnly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CourseCode1" Type="varchar" Mode="In" />
+          <Parameter Name="CourseCode2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_GetStudentsWithHighMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetTeacherCountByDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetTopScoringStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_InsertStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="St_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="Fee_Payment" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="sp_SelectAllStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_SelectExamResultsByStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="St_ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_UpdateStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="St_ID" Type="int" Mode="In" />
+          <Parameter Name="St_Name" Type="varchar" Mode="In" />
+          <Parameter Name="Contact" Type="varchar" Mode="In" />
+          <Parameter Name="Fee_Payment" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="db_examsysModelStoreContainer">
+          <EntitySet Name="tbl_COURSE" EntityType="Self.tbl_COURSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DEPARTMENT" EntityType="Self.tbl_DEPARTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_EXAM" EntityType="Self.tbl_EXAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_RESULT" EntityType="Self.tbl_RESULT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SEMESTER_DETAILS" EntityType="Self.tbl_SEMESTER_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_STUDENT" EntityType="Self.tbl_STUDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_STUDENT_AUDIT" EntityType="Self.tbl_STUDENT_AUDIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_STUDENT_SEMESTER" EntityType="Self.tbl_STUDENT_SEMESTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_TEACHER" EntityType="Self.tbl_TEACHER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_ExamResults" EntityType="Self.vw_ExamResults" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_ExamResults].[St_ID] AS [St_ID], 
+    [vw_ExamResults].[St_Name] AS [St_Name], 
+    [vw_ExamResults].[Course_Code] AS [Course_Code], 
+    [vw_ExamResults].[Course_Name] AS [Course_Name], 
+    [vw_ExamResults].[Exam_ID] AS [Exam_ID], 
+    [vw_ExamResults].[Exam_Type] AS [Exam_Type], 
+    [vw_ExamResults].[Marks] AS [Marks], 
+    [vw_ExamResults].[Grade] AS [Grade], 
+    [vw_ExamResults].[Result_Date] AS [Result_Date]
+    FROM [dbo].[vw_ExamResults] AS [vw_ExamResults]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_StudentDetails" EntityType="Self.vw_StudentDetails" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_StudentDetails].[St_ID] AS [St_ID], 
+    [vw_StudentDetails].[St_Name] AS [St_Name], 
+    [vw_StudentDetails].[Contact] AS [Contact], 
+    [vw_StudentDetails].[Fee_Payment] AS [Fee_Payment], 
+    [vw_StudentDetails].[Department_Name] AS [Department_Name], 
+    [vw_StudentDetails].[Course_Name] AS [Course_Name], 
+    [vw_StudentDetails].[Course_Type] AS [Course_Type], 
+    [vw_StudentDetails].[Credit_Hr] AS [Credit_Hr], 
+    [vw_StudentDetails].[Active] AS [Active]
+    FROM [dbo].[vw_StudentDetails] AS [vw_StudentDetails]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__tbl_RESUL__Cours__18EBB532" Association="Self.FK__tbl_RESUL__Cours__18EBB532">
+            <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__Exam___19DFD96B" Association="Self.FK__tbl_RESUL__Exam___19DFD96B">
+            <End Role="tbl_EXAM" EntitySet="tbl_EXAM" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__Sem_I__17F790F9" Association="Self.FK__tbl_RESUL__Sem_I__17F790F9">
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__St_ID__17036CC0" Association="Self.FK__tbl_RESUL__St_ID__17036CC0">
+            <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_SEMES__Cours__60A75C0F" Association="Self.FK__tbl_SEMES__Cours__60A75C0F">
+            <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_SEMEST__T_ID__619B8048" Association="Self.FK__tbl_SEMEST__T_ID__619B8048">
+            <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_STUDE__Sem_I__656C112C" Association="Self.FK__tbl_STUDE__Sem_I__656C112C">
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+            <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_STUDE__St_ID__6477ECF3" Association="Self.FK__tbl_STUDE__St_ID__6477ECF3">
+            <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+            <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_TEACHE__D_ID__5BE2A6F2" Association="Self.FK__tbl_TEACHE__D_ID__5BE2A6F2">
+            <End Role="tbl_DEPARTMENT" EntitySet="tbl_DEPARTMENT" />
+            <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_examsysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="fn_GetPaidStudents_Result">
+          <Property Name="St_ID" Type="Int32" Nullable="false" />
+          <Property Name="St_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityType Name="tbl_COURSE">
+          <Key>
+            <PropertyRef Name="Course_Code" />
+          </Key>
+          <Property Name="Course_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Hr" Type="Int32" />
+          <Property Name="Req_Req" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_RESULT" Relationship="Self.FK__tbl_RESUL__Cours__18EBB532" FromRole="tbl_COURSE" ToRole="tbl_RESULT" />
+          <NavigationProperty Name="tbl_SEMESTER_DETAILS" Relationship="Self.FK__tbl_SEMES__Cours__60A75C0F" FromRole="tbl_COURSE" ToRole="tbl_SEMESTER_DETAILS" />
+        </EntityType>
+        <EntityType Name="tbl_DEPARTMENT">
+          <Key>
+            <PropertyRef Name="D_ID" />
+          </Key>
+          <Property Name="D_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="D_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_TEACHER" Relationship="Self.FK__tbl_TEACHE__D_ID__5BE2A6F2" FromRole="tbl_DEPARTMENT" ToRole="tbl_TEACHER" />
+        </EntityType>
+        <EntityType Name="tbl_EXAM">
+          <Key>
+            <PropertyRef Name="Room_no" />
+          </Key>
+          <Property Name="Room_no" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Exam_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_RESULT" Relationship="Self.FK__tbl_RESUL__Exam___19DFD96B" FromRole="tbl_EXAM" ToRole="tbl_RESULT" />
+        </EntityType>
+        <EntityType Name="tbl_RESULT">
+          <Key>
+            <PropertyRef Name="Sem_ID" />
+            <PropertyRef Name="Course_Code" />
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="Exam_ID" />
+          </Key>
+          <Property Name="Sem_ID" Type="Int32" Nullable="false" />
+          <Property Name="Course_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="St_ID" Type="Int32" Nullable="false" />
+          <Property Name="Exam_ID" Type="Int32" Nullable="false" />
+          <Property Name="Marks" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Grade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Result_Date" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_COURSE" Relationship="Self.FK__tbl_RESUL__Cours__18EBB532" FromRole="tbl_RESULT" ToRole="tbl_COURSE" />
+          <NavigationProperty Name="tbl_EXAM" Relationship="Self.FK__tbl_RESUL__Exam___19DFD96B" FromRole="tbl_RESULT" ToRole="tbl_EXAM" />
+          <NavigationProperty Name="tbl_SEMESTER_DETAILS" Relationship="Self.FK__tbl_RESUL__Sem_I__17F790F9" FromRole="tbl_RESULT" ToRole="tbl_SEMESTER_DETAILS" />
+          <NavigationProperty Name="tbl_STUDENT" Relationship="Self.FK__tbl_RESUL__St_ID__17036CC0" FromRole="tbl_RESULT" ToRole="tbl_STUDENT" />
+        </EntityType>
+        <EntityType Name="tbl_SEMESTER_DETAILS">
+          <Key>
+            <PropertyRef Name="Sem_ID" />
+          </Key>
+          <Property Name="Sem_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Course_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="T_ID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_COURSE" Relationship="Self.FK__tbl_SEMES__Cours__60A75C0F" FromRole="tbl_SEMESTER_DETAILS" ToRole="tbl_COURSE" />
+          <NavigationProperty Name="tbl_RESULT" Relationship="Self.FK__tbl_RESUL__Sem_I__17F790F9" FromRole="tbl_SEMESTER_DETAILS" ToRole="tbl_RESULT" />
+          <NavigationProperty Name="tbl_TEACHER" Relationship="Self.FK__tbl_SEMEST__T_ID__619B8048" FromRole="tbl_SEMESTER_DETAILS" ToRole="tbl_TEACHER" />
+          <NavigationProperty Name="tbl_STUDENT_SEMESTER" Relationship="Self.FK__tbl_STUDE__Sem_I__656C112C" FromRole="tbl_SEMESTER_DETAILS" ToRole="tbl_STUDENT_SEMESTER" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT">
+          <Key>
+            <PropertyRef Name="St_ID" />
+          </Key>
+          <Property Name="St_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="St_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fee_Payment" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_RESULT" Relationship="Self.FK__tbl_RESUL__St_ID__17036CC0" FromRole="tbl_STUDENT" ToRole="tbl_RESULT" />
+          <NavigationProperty Name="tbl_STUDENT_SEMESTER" Relationship="Self.FK__tbl_STUDE__St_ID__6477ECF3" FromRole="tbl_STUDENT" ToRole="tbl_STUDENT_SEMESTER" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT_AUDIT">
+          <Key>
+            <PropertyRef Name="Audit_ID" />
+          </Key>
+          <Property Name="Audit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="St_ID" Type="Int32" />
+          <Property Name="ChangeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_STUDENT_SEMESTER">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="Sem_ID" />
+          </Key>
+          <Property Name="St_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sem_ID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_SEMESTER_DETAILS" Relationship="Self.FK__tbl_STUDE__Sem_I__656C112C" FromRole="tbl_STUDENT_SEMESTER" ToRole="tbl_SEMESTER_DETAILS" />
+          <NavigationProperty Name="tbl_STUDENT" Relationship="Self.FK__tbl_STUDE__St_ID__6477ECF3" FromRole="tbl_STUDENT_SEMESTER" ToRole="tbl_STUDENT" />
+        </EntityType>
+        <EntityType Name="tbl_TEACHER">
+          <Key>
+            <PropertyRef Name="T_ID" />
+          </Key>
+          <Property Name="T_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="T_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="D_ID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_DEPARTMENT" Relationship="Self.FK__tbl_TEACHE__D_ID__5BE2A6F2" FromRole="tbl_TEACHER" ToRole="tbl_DEPARTMENT" />
+          <NavigationProperty Name="tbl_SEMESTER_DETAILS" Relationship="Self.FK__tbl_SEMEST__T_ID__619B8048" FromRole="tbl_TEACHER" ToRole="tbl_SEMESTER_DETAILS" />
+        </EntityType>
+        <EntityType Name="vw_ExamResults">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="St_Name" />
+            <PropertyRef Name="Course_Code" />
+            <PropertyRef Name="Course_Name" />
+            <PropertyRef Name="Exam_ID" />
+            <PropertyRef Name="Exam_Type" />
+          </Key>
+          <Property Name="St_ID" Type="Int32" Nullable="false" />
+          <Property Name="St_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exam_ID" Type="Int32" Nullable="false" />
+          <Property Name="Exam_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Marks" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Grade" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Result_Date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_StudentDetails">
+          <Key>
+            <PropertyRef Name="St_ID" />
+            <PropertyRef Name="St_Name" />
+            <PropertyRef Name="Department_Name" />
+            <PropertyRef Name="Course_Name" />
+          </Key>
+          <Property Name="St_ID" Type="Int32" Nullable="false" />
+          <Property Name="St_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fee_Payment" Type="Boolean" />
+          <Property Name="Department_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Course_Type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Credit_Hr" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__tbl_RESUL__Cours__18EBB532">
+          <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_COURSE">
+              <PropertyRef Name="Course_Code" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Course_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_SEMES__Cours__60A75C0F">
+          <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_COURSE">
+              <PropertyRef Name="Course_Code" />
+            </Principal>
+            <Dependent Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Course_Code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_TEACHE__D_ID__5BE2A6F2">
+          <End Role="tbl_DEPARTMENT" Type="Self.tbl_DEPARTMENT" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_DEPARTMENT">
+              <PropertyRef Name="D_ID" />
+            </Principal>
+            <Dependent Role="tbl_TEACHER">
+              <PropertyRef Name="D_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__Exam___19DFD96B">
+          <End Role="tbl_EXAM" Type="Self.tbl_EXAM" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_EXAM">
+              <PropertyRef Name="Room_no" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Exam_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__Sem_I__17F790F9">
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Sem_ID" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="Sem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_RESUL__St_ID__17036CC0">
+          <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1" />
+          <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_STUDENT">
+              <PropertyRef Name="St_ID" />
+            </Principal>
+            <Dependent Role="tbl_RESULT">
+              <PropertyRef Name="St_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_SEMEST__T_ID__619B8048">
+          <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_TEACHER">
+              <PropertyRef Name="T_ID" />
+            </Principal>
+            <Dependent Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="T_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_STUDE__Sem_I__656C112C">
+          <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_SEMESTER_DETAILS">
+              <PropertyRef Name="Sem_ID" />
+            </Principal>
+            <Dependent Role="tbl_STUDENT_SEMESTER">
+              <PropertyRef Name="Sem_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_STUDE__St_ID__6477ECF3">
+          <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_STUDENT">
+              <PropertyRef Name="St_ID" />
+            </Principal>
+            <Dependent Role="tbl_STUDENT_SEMESTER">
+              <PropertyRef Name="St_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_examsysEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_COURSE" EntityType="Self.tbl_COURSE" />
+          <EntitySet Name="tbl_DEPARTMENT" EntityType="Self.tbl_DEPARTMENT" />
+          <EntitySet Name="tbl_EXAM" EntityType="Self.tbl_EXAM" />
+          <EntitySet Name="tbl_RESULT" EntityType="Self.tbl_RESULT" />
+          <EntitySet Name="tbl_SEMESTER_DETAILS" EntityType="Self.tbl_SEMESTER_DETAILS" />
+          <EntitySet Name="tbl_STUDENT" EntityType="Self.tbl_STUDENT" />
+          <EntitySet Name="tbl_STUDENT_AUDIT" EntityType="Self.tbl_STUDENT_AUDIT" />
+          <EntitySet Name="tbl_STUDENT_SEMESTER" EntityType="Self.tbl_STUDENT_SEMESTER" />
+          <EntitySet Name="tbl_TEACHER" EntityType="Self.tbl_TEACHER" />
+          <EntitySet Name="vw_ExamResults" EntityType="Self.vw_ExamResults" />
+          <EntitySet Name="vw_StudentDetails" EntityType="Self.vw_StudentDetails" />
+          <AssociationSet Name="FK__tbl_RESUL__Cours__18EBB532" Association="Self.FK__tbl_RESUL__Cours__18EBB532">
+            <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_SEMES__Cours__60A75C0F" Association="Self.FK__tbl_SEMES__Cours__60A75C0F">
+            <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_TEACHE__D_ID__5BE2A6F2" Association="Self.FK__tbl_TEACHE__D_ID__5BE2A6F2">
+            <End Role="tbl_DEPARTMENT" EntitySet="tbl_DEPARTMENT" />
+            <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__Exam___19DFD96B" Association="Self.FK__tbl_RESUL__Exam___19DFD96B">
+            <End Role="tbl_EXAM" EntitySet="tbl_EXAM" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__Sem_I__17F790F9" Association="Self.FK__tbl_RESUL__Sem_I__17F790F9">
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_RESUL__St_ID__17036CC0" Association="Self.FK__tbl_RESUL__St_ID__17036CC0">
+            <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+            <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_SEMEST__T_ID__619B8048" Association="Self.FK__tbl_SEMEST__T_ID__619B8048">
+            <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_STUDE__Sem_I__656C112C" Association="Self.FK__tbl_STUDE__Sem_I__656C112C">
+            <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+            <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_STUDE__St_ID__6477ECF3" Association="Self.FK__tbl_STUDE__St_ID__6477ECF3">
+            <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+            <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+          </AssociationSet>
+          <FunctionImport Name="fn_GetPaidStudents" IsComposable="true" ReturnType="Collection(db_examsysModel.fn_GetPaidStudents_Result)" />
+          <FunctionImport Name="sp_DeleteStudent">
+            <Parameter Name="St_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetActiveAndInactiveCourses" ReturnType="Collection(db_examsysModel.sp_GetActiveAndInactiveCourses_Result)" />
+          <FunctionImport Name="sp_GetStudentsEnrolledInBothCourses" ReturnType="Collection(db_examsysModel.sp_GetStudentsEnrolledInBothCourses_Result)">
+            <Parameter Name="CourseCode1" Mode="In" Type="String" />
+            <Parameter Name="CourseCode2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetStudentsEnrolledInOneCourseOnly" ReturnType="Collection(db_examsysModel.sp_GetStudentsEnrolledInOneCourseOnly_Result)">
+            <Parameter Name="CourseCode1" Mode="In" Type="String" />
+            <Parameter Name="CourseCode2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetStudentsWithHighMarks" ReturnType="Collection(db_examsysModel.sp_GetStudentsWithHighMarks_Result)" />
+          <FunctionImport Name="sp_GetTeacherCountByDepartment" ReturnType="Collection(db_examsysModel.sp_GetTeacherCountByDepartment_Result)" />
+          <FunctionImport Name="sp_GetTopScoringStudents" ReturnType="Collection(db_examsysModel.sp_GetTopScoringStudents_Result)" />
+          <FunctionImport Name="sp_InsertStudent">
+            <Parameter Name="St_Name" Mode="In" Type="String" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="Fee_Payment" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="sp_SelectAllStudents" ReturnType="Collection(db_examsysModel.sp_SelectAllStudents_Result)" />
+          <FunctionImport Name="sp_SelectExamResultsByStudent" ReturnType="Collection(db_examsysModel.sp_SelectExamResultsByStudent_Result)">
+            <Parameter Name="St_ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_UpdateStudent">
+            <Parameter Name="St_ID" Mode="In" Type="Int32" />
+            <Parameter Name="St_Name" Mode="In" Type="String" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="Fee_Payment" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetActiveAndInactiveCourses_Result">
+          <Property Type="String" Name="Course_Code" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Course_Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="8" />
+        </ComplexType>
+        <ComplexType Name="sp_GetStudentsEnrolledInBothCourses_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetStudentsEnrolledInOneCourseOnly_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_GetStudentsWithHighMarks_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="sp_GetTeacherCountByDepartment_Result">
+          <Property Type="String" Name="D_Name" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="TeacherCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_GetTopScoringStudents_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_SelectAllStudents_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Contact" Nullable="true" MaxLength="20" />
+          <Property Type="Boolean" Name="Fee_Payment" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModifiedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_SelectExamResultsByStudent_Result">
+          <Property Type="Int32" Name="St_ID" Nullable="false" />
+          <Property Type="String" Name="St_Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Course_Code" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Course_Name" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="Exam_ID" Nullable="false" />
+          <Property Type="String" Name="Exam_Type" Nullable="false" MaxLength="20" />
+          <Property Type="Decimal" Name="Marks" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="Grade" Nullable="true" MaxLength="2" />
+          <Property Type="DateTime" Name="Result_Date" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_examsysModelStoreContainer" CdmEntityContainer="db_examsysEntities">
+          <EntitySetMapping Name="tbl_COURSE">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_COURSE">
+              <MappingFragment StoreEntitySet="tbl_COURSE">
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Course_Type" ColumnName="Course_Type" />
+                <ScalarProperty Name="Credit_Hr" ColumnName="Credit_Hr" />
+                <ScalarProperty Name="Req_Req" ColumnName="Req_Req" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DEPARTMENT">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_DEPARTMENT">
+              <MappingFragment StoreEntitySet="tbl_DEPARTMENT">
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_EXAM">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_EXAM">
+              <MappingFragment StoreEntitySet="tbl_EXAM">
+                <ScalarProperty Name="Room_no" ColumnName="Room_no" />
+                <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_RESULT">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_RESULT">
+              <MappingFragment StoreEntitySet="tbl_RESULT">
+                <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SEMESTER_DETAILS">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_SEMESTER_DETAILS">
+              <MappingFragment StoreEntitySet="tbl_SEMESTER_DETAILS">
+                <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_STUDENT">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT">
+              <MappingFragment StoreEntitySet="tbl_STUDENT">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_STUDENT_AUDIT">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT_AUDIT">
+              <MappingFragment StoreEntitySet="tbl_STUDENT_AUDIT">
+                <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+                <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_STUDENT_SEMESTER">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT_SEMESTER">
+              <MappingFragment StoreEntitySet="tbl_STUDENT_SEMESTER">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_TEACHER">
+            <EntityTypeMapping TypeName="db_examsysModel.tbl_TEACHER">
+              <MappingFragment StoreEntitySet="tbl_TEACHER">
+                <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+                <ScalarProperty Name="T_Name" ColumnName="T_Name" />
+                <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_ExamResults">
+            <EntityTypeMapping TypeName="db_examsysModel.vw_ExamResults">
+              <MappingFragment StoreEntitySet="vw_ExamResults">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+                <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_StudentDetails">
+            <EntityTypeMapping TypeName="db_examsysModel.vw_StudentDetails">
+              <MappingFragment StoreEntitySet="vw_StudentDetails">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Course_Type" ColumnName="Course_Type" />
+                <ScalarProperty Name="Credit_Hr" ColumnName="Credit_Hr" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="db_examsysModel.Store.fn_GetPaidStudents" FunctionImportName="fn_GetPaidStudents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.fn_GetPaidStudents_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_DeleteStudent" FunctionName="db_examsysModel.Store.sp_DeleteStudent" />
+          <FunctionImportMapping FunctionImportName="sp_GetActiveAndInactiveCourses" FunctionName="db_examsysModel.Store.sp_GetActiveAndInactiveCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetActiveAndInactiveCourses_Result">
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentsEnrolledInBothCourses" FunctionName="db_examsysModel.Store.sp_GetStudentsEnrolledInBothCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsEnrolledInBothCourses_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentsEnrolledInOneCourseOnly" FunctionName="db_examsysModel.Store.sp_GetStudentsEnrolledInOneCourseOnly">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsEnrolledInOneCourseOnly_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetStudentsWithHighMarks" FunctionName="db_examsysModel.Store.sp_GetStudentsWithHighMarks">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsWithHighMarks_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetTeacherCountByDepartment" FunctionName="db_examsysModel.Store.sp_GetTeacherCountByDepartment">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetTeacherCountByDepartment_Result">
+                <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+                <ScalarProperty Name="TeacherCount" ColumnName="TeacherCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetTopScoringStudents" FunctionName="db_examsysModel.Store.sp_GetTopScoringStudents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_GetTopScoringStudents_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertStudent" FunctionName="db_examsysModel.Store.sp_InsertStudent" />
+          <FunctionImportMapping FunctionImportName="sp_SelectAllStudents" FunctionName="db_examsysModel.Store.sp_SelectAllStudents">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_SelectAllStudents_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_SelectExamResultsByStudent" FunctionName="db_examsysModel.Store.sp_SelectExamResultsByStudent">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_examsysModel.sp_SelectExamResultsByStudent_Result">
+                <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+                <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+                <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+                <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+                <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+                <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+                <ScalarProperty Name="Marks" ColumnName="Marks" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_UpdateStudent" FunctionName="db_examsysModel.Store.sp_UpdateStudent" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

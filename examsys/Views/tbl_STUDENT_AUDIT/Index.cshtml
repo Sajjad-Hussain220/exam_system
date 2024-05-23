@@ -1,0 +1,45 @@
+﻿@model IEnumerable<examsys.Models.tbl_STUDENT_AUDIT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.St_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChangeDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.St_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChangeDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Audit_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Audit_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Audit_ID })
+        </td>
+    </tr>
+}
+
+</table>

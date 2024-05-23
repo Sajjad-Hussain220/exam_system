@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_examsysModelStoreContainer" CdmEntityContainer="db_examsysEntities">
+    <EntitySetMapping Name="tbl_COURSE">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_COURSE">
+        <MappingFragment StoreEntitySet="tbl_COURSE">
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Course_Type" ColumnName="Course_Type" />
+          <ScalarProperty Name="Credit_Hr" ColumnName="Credit_Hr" />
+          <ScalarProperty Name="Req_Req" ColumnName="Req_Req" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DEPARTMENT">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_DEPARTMENT">
+        <MappingFragment StoreEntitySet="tbl_DEPARTMENT">
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+          <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EXAM">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_EXAM">
+        <MappingFragment StoreEntitySet="tbl_EXAM">
+          <ScalarProperty Name="Room_no" ColumnName="Room_no" />
+          <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_RESULT">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_RESULT">
+        <MappingFragment StoreEntitySet="tbl_RESULT">
+          <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SEMESTER_DETAILS">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_SEMESTER_DETAILS">
+        <MappingFragment StoreEntitySet="tbl_SEMESTER_DETAILS">
+          <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_STUDENT">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT">
+        <MappingFragment StoreEntitySet="tbl_STUDENT">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_STUDENT_AUDIT">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT_AUDIT">
+        <MappingFragment StoreEntitySet="tbl_STUDENT_AUDIT">
+          <ScalarProperty Name="Audit_ID" ColumnName="Audit_ID" />
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_STUDENT_SEMESTER">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_STUDENT_SEMESTER">
+        <MappingFragment StoreEntitySet="tbl_STUDENT_SEMESTER">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="Sem_ID" ColumnName="Sem_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TEACHER">
+      <EntityTypeMapping TypeName="db_examsysModel.tbl_TEACHER">
+        <MappingFragment StoreEntitySet="tbl_TEACHER">
+          <ScalarProperty Name="T_ID" ColumnName="T_ID" />
+          <ScalarProperty Name="T_Name" ColumnName="T_Name" />
+          <ScalarProperty Name="D_ID" ColumnName="D_ID" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_ExamResults">
+      <EntityTypeMapping TypeName="db_examsysModel.vw_ExamResults">
+        <MappingFragment StoreEntitySet="vw_ExamResults">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+          <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_StudentDetails">
+      <EntityTypeMapping TypeName="db_examsysModel.vw_StudentDetails">
+        <MappingFragment StoreEntitySet="vw_StudentDetails">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+          <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Course_Type" ColumnName="Course_Type" />
+          <ScalarProperty Name="Credit_Hr" ColumnName="Credit_Hr" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="db_examsysModel.Store.fn_GetPaidStudents" FunctionImportName="fn_GetPaidStudents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.fn_GetPaidStudents_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_DeleteStudent" FunctionName="db_examsysModel.Store.sp_DeleteStudent" />
+    <FunctionImportMapping FunctionImportName="sp_GetActiveAndInactiveCourses" FunctionName="db_examsysModel.Store.sp_GetActiveAndInactiveCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetActiveAndInactiveCourses_Result">
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetStudentsEnrolledInBothCourses" FunctionName="db_examsysModel.Store.sp_GetStudentsEnrolledInBothCourses">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsEnrolledInBothCourses_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetStudentsEnrolledInOneCourseOnly" FunctionName="db_examsysModel.Store.sp_GetStudentsEnrolledInOneCourseOnly">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsEnrolledInOneCourseOnly_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetStudentsWithHighMarks" FunctionName="db_examsysModel.Store.sp_GetStudentsWithHighMarks">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetStudentsWithHighMarks_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetTeacherCountByDepartment" FunctionName="db_examsysModel.Store.sp_GetTeacherCountByDepartment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetTeacherCountByDepartment_Result">
+          <ScalarProperty Name="D_Name" ColumnName="D_Name" />
+          <ScalarProperty Name="TeacherCount" ColumnName="TeacherCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetTopScoringStudents" FunctionName="db_examsysModel.Store.sp_GetTopScoringStudents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_GetTopScoringStudents_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_InsertStudent" FunctionName="db_examsysModel.Store.sp_InsertStudent" />
+    <FunctionImportMapping FunctionImportName="sp_SelectAllStudents" FunctionName="db_examsysModel.Store.sp_SelectAllStudents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_SelectAllStudents_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Fee_Payment" ColumnName="Fee_Payment" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_SelectExamResultsByStudent" FunctionName="db_examsysModel.Store.sp_SelectExamResultsByStudent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_examsysModel.sp_SelectExamResultsByStudent_Result">
+          <ScalarProperty Name="St_ID" ColumnName="St_ID" />
+          <ScalarProperty Name="St_Name" ColumnName="St_Name" />
+          <ScalarProperty Name="Course_Code" ColumnName="Course_Code" />
+          <ScalarProperty Name="Course_Name" ColumnName="Course_Name" />
+          <ScalarProperty Name="Exam_ID" ColumnName="Exam_ID" />
+          <ScalarProperty Name="Exam_Type" ColumnName="Exam_Type" />
+          <ScalarProperty Name="Marks" ColumnName="Marks" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Result_Date" ColumnName="Result_Date" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_UpdateStudent" FunctionName="db_examsysModel.Store.sp_UpdateStudent" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8b16b377f3fa42049c1a7dcc9f3c509b" Name="Diagram1">
+        <EntityTypeShape EntityType="db_examsysModel.tbl_COURSE" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_DEPARTMENT" Width="1.5" PointX="1.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_EXAM" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_RESULT" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_SEMESTER_DETAILS" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_STUDENT" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_STUDENT_AUDIT" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_STUDENT_SEMESTER" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.tbl_TEACHER" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.vw_ExamResults" Width="1.5" PointX="5.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_examsysModel.vw_StudentDetails" Width="1.5" PointX="7.75" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_RESUL__Cours__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_SEMES__Cours__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_TEACHE__D_ID__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_RESUL__Exam___19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_RESUL__Sem_I__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_RESUL__St_ID__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_SEMEST__T_ID__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_STUDE__Sem_I__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="db_examsysModel.FK__tbl_STUDE__St_ID__6477ECF3" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

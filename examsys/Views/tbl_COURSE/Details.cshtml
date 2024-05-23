@@ -1,0 +1,98 @@
+﻿@model examsys.Models.tbl_COURSE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_COURSE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Course_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Credit_Hr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Credit_Hr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Req_Req)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Req_Req)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Course_Code }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

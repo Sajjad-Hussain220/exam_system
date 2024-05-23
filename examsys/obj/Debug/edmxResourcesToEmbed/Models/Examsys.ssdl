@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_examsysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_COURSE">
+    <Key>
+      <PropertyRef Name="Course_Code" />
+    </Key>
+    <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Course_Type" Type="varchar" MaxLength="20" />
+    <Property Name="Credit_Hr" Type="int" />
+    <Property Name="Req_Req" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_DEPARTMENT">
+    <Key>
+      <PropertyRef Name="D_ID" />
+    </Key>
+    <Property Name="D_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="D_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_EXAM">
+    <Key>
+      <PropertyRef Name="Room_no" />
+    </Key>
+    <Property Name="Room_no" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Exam_Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_RESULT">
+    <Key>
+      <PropertyRef Name="Sem_ID" />
+      <PropertyRef Name="Course_Code" />
+      <PropertyRef Name="St_ID" />
+      <PropertyRef Name="Exam_ID" />
+    </Key>
+    <Property Name="Sem_ID" Type="int" Nullable="false" />
+    <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="St_ID" Type="int" Nullable="false" />
+    <Property Name="Exam_ID" Type="int" Nullable="false" />
+    <Property Name="Marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Grade" Type="varchar" MaxLength="2" />
+    <Property Name="Result_Date" Type="date" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_SEMESTER_DETAILS">
+    <Key>
+      <PropertyRef Name="Sem_ID" />
+    </Key>
+    <Property Name="Sem_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Course_Code" Type="varchar" MaxLength="10" />
+    <Property Name="T_ID" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_STUDENT">
+    <Key>
+      <PropertyRef Name="St_ID" />
+    </Key>
+    <Property Name="St_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Payment" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_STUDENT_AUDIT">
+    <Key>
+      <PropertyRef Name="Audit_ID" />
+    </Key>
+    <Property Name="Audit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="St_ID" Type="int" />
+    <Property Name="ChangeType" Type="varchar" MaxLength="50" />
+    <Property Name="ChangeDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_STUDENT_SEMESTER">
+    <Key>
+      <PropertyRef Name="St_ID" />
+      <PropertyRef Name="Sem_ID" />
+    </Key>
+    <Property Name="St_ID" Type="int" Nullable="false" />
+    <Property Name="Sem_ID" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_TEACHER">
+    <Key>
+      <PropertyRef Name="T_ID" />
+    </Key>
+    <Property Name="T_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="T_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="D_ID" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_examsys.dbo.vw_ExamResults' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_ExamResults">
+    <Key>
+      <PropertyRef Name="St_ID" />
+      <PropertyRef Name="St_Name" />
+      <PropertyRef Name="Course_Code" />
+      <PropertyRef Name="Course_Name" />
+      <PropertyRef Name="Exam_ID" />
+      <PropertyRef Name="Exam_Type" />
+    </Key>
+    <Property Name="St_ID" Type="int" Nullable="false" />
+    <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Course_Code" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Exam_ID" Type="int" Nullable="false" />
+    <Property Name="Exam_Type" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Marks" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Grade" Type="varchar" MaxLength="2" />
+    <Property Name="Result_Date" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db_examsys.dbo.vw_StudentDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_StudentDetails">
+    <Key>
+      <PropertyRef Name="St_ID" />
+      <PropertyRef Name="St_Name" />
+      <PropertyRef Name="Department_Name" />
+      <PropertyRef Name="Course_Name" />
+    </Key>
+    <Property Name="St_ID" Type="int" Nullable="false" />
+    <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Contact" Type="varchar" MaxLength="20" />
+    <Property Name="Fee_Payment" Type="bit" />
+    <Property Name="Department_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Course_Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Course_Type" Type="varchar" MaxLength="20" />
+    <Property Name="Credit_Hr" Type="int" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <Association Name="FK__tbl_RESUL__Cours__18EBB532">
+    <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="1" />
+    <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_COURSE">
+        <PropertyRef Name="Course_Code" />
+      </Principal>
+      <Dependent Role="tbl_RESULT">
+        <PropertyRef Name="Course_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RESUL__Exam___19DFD96B">
+    <End Role="tbl_EXAM" Type="Self.tbl_EXAM" Multiplicity="1" />
+    <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_EXAM">
+        <PropertyRef Name="Room_no" />
+      </Principal>
+      <Dependent Role="tbl_RESULT">
+        <PropertyRef Name="Exam_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RESUL__Sem_I__17F790F9">
+    <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1" />
+    <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SEMESTER_DETAILS">
+        <PropertyRef Name="Sem_ID" />
+      </Principal>
+      <Dependent Role="tbl_RESULT">
+        <PropertyRef Name="Sem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_RESUL__St_ID__17036CC0">
+    <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1" />
+    <End Role="tbl_RESULT" Type="Self.tbl_RESULT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_STUDENT">
+        <PropertyRef Name="St_ID" />
+      </Principal>
+      <Dependent Role="tbl_RESULT">
+        <PropertyRef Name="St_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_SEMES__Cours__60A75C0F">
+    <End Role="tbl_COURSE" Type="Self.tbl_COURSE" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_COURSE">
+        <PropertyRef Name="Course_Code" />
+      </Principal>
+      <Dependent Role="tbl_SEMESTER_DETAILS">
+        <PropertyRef Name="Course_Code" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_SEMEST__T_ID__619B8048">
+    <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TEACHER">
+        <PropertyRef Name="T_ID" />
+      </Principal>
+      <Dependent Role="tbl_SEMESTER_DETAILS">
+        <PropertyRef Name="T_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_STUDE__Sem_I__656C112C">
+    <End Role="tbl_SEMESTER_DETAILS" Type="Self.tbl_SEMESTER_DETAILS" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_SEMESTER_DETAILS">
+        <PropertyRef Name="Sem_ID" />
+      </Principal>
+      <Dependent Role="tbl_STUDENT_SEMESTER">
+        <PropertyRef Name="Sem_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_STUDE__St_ID__6477ECF3">
+    <End Role="tbl_STUDENT" Type="Self.tbl_STUDENT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_STUDENT_SEMESTER" Type="Self.tbl_STUDENT_SEMESTER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_STUDENT">
+        <PropertyRef Name="St_ID" />
+      </Principal>
+      <Dependent Role="tbl_STUDENT_SEMESTER">
+        <PropertyRef Name="St_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TEACHE__D_ID__5BE2A6F2">
+    <End Role="tbl_DEPARTMENT" Type="Self.tbl_DEPARTMENT" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_TEACHER" Type="Self.tbl_TEACHER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DEPARTMENT">
+        <PropertyRef Name="D_ID" />
+      </Principal>
+      <Dependent Role="tbl_TEACHER">
+        <PropertyRef Name="D_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_CalculateTotalMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="decimal">
+    <Parameter Name="St_ID" Type="int" Mode="In" />
+    <Parameter Name="Sem_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_GetPaidStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="St_ID" Type="int" Nullable="false" />
+          <Property Name="St_Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="sp_DeleteStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="St_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetActiveAndInactiveCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetStudentsEnrolledInBothCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseCode1" Type="varchar" Mode="In" />
+    <Parameter Name="CourseCode2" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetStudentsEnrolledInOneCourseOnly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CourseCode1" Type="varchar" Mode="In" />
+    <Parameter Name="CourseCode2" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_GetStudentsWithHighMarks" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetTeacherCountByDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetTopScoringStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_InsertStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="St_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="Fee_Payment" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_SelectAllStudents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_SelectExamResultsByStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="St_ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_UpdateStudent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="St_ID" Type="int" Mode="In" />
+    <Parameter Name="St_Name" Type="varchar" Mode="In" />
+    <Parameter Name="Contact" Type="varchar" Mode="In" />
+    <Parameter Name="Fee_Payment" Type="bit" Mode="In" />
+  </Function>
+  <EntityContainer Name="db_examsysModelStoreContainer">
+    <EntitySet Name="tbl_COURSE" EntityType="Self.tbl_COURSE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DEPARTMENT" EntityType="Self.tbl_DEPARTMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_EXAM" EntityType="Self.tbl_EXAM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_RESULT" EntityType="Self.tbl_RESULT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SEMESTER_DETAILS" EntityType="Self.tbl_SEMESTER_DETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_STUDENT" EntityType="Self.tbl_STUDENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_STUDENT_AUDIT" EntityType="Self.tbl_STUDENT_AUDIT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_STUDENT_SEMESTER" EntityType="Self.tbl_STUDENT_SEMESTER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_TEACHER" EntityType="Self.tbl_TEACHER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_ExamResults" EntityType="Self.vw_ExamResults" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_ExamResults].[St_ID] AS [St_ID], 
+    [vw_ExamResults].[St_Name] AS [St_Name], 
+    [vw_ExamResults].[Course_Code] AS [Course_Code], 
+    [vw_ExamResults].[Course_Name] AS [Course_Name], 
+    [vw_ExamResults].[Exam_ID] AS [Exam_ID], 
+    [vw_ExamResults].[Exam_Type] AS [Exam_Type], 
+    [vw_ExamResults].[Marks] AS [Marks], 
+    [vw_ExamResults].[Grade] AS [Grade], 
+    [vw_ExamResults].[Result_Date] AS [Result_Date]
+    FROM [dbo].[vw_ExamResults] AS [vw_ExamResults]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_StudentDetails" EntityType="Self.vw_StudentDetails" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_StudentDetails].[St_ID] AS [St_ID], 
+    [vw_StudentDetails].[St_Name] AS [St_Name], 
+    [vw_StudentDetails].[Contact] AS [Contact], 
+    [vw_StudentDetails].[Fee_Payment] AS [Fee_Payment], 
+    [vw_StudentDetails].[Department_Name] AS [Department_Name], 
+    [vw_StudentDetails].[Course_Name] AS [Course_Name], 
+    [vw_StudentDetails].[Course_Type] AS [Course_Type], 
+    [vw_StudentDetails].[Credit_Hr] AS [Credit_Hr], 
+    [vw_StudentDetails].[Active] AS [Active]
+    FROM [dbo].[vw_StudentDetails] AS [vw_StudentDetails]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__tbl_RESUL__Cours__18EBB532" Association="Self.FK__tbl_RESUL__Cours__18EBB532">
+      <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+      <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RESUL__Exam___19DFD96B" Association="Self.FK__tbl_RESUL__Exam___19DFD96B">
+      <End Role="tbl_EXAM" EntitySet="tbl_EXAM" />
+      <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RESUL__Sem_I__17F790F9" Association="Self.FK__tbl_RESUL__Sem_I__17F790F9">
+      <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+      <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_RESUL__St_ID__17036CC0" Association="Self.FK__tbl_RESUL__St_ID__17036CC0">
+      <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+      <End Role="tbl_RESULT" EntitySet="tbl_RESULT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_SEMES__Cours__60A75C0F" Association="Self.FK__tbl_SEMES__Cours__60A75C0F">
+      <End Role="tbl_COURSE" EntitySet="tbl_COURSE" />
+      <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_SEMEST__T_ID__619B8048" Association="Self.FK__tbl_SEMEST__T_ID__619B8048">
+      <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+      <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_STUDE__Sem_I__656C112C" Association="Self.FK__tbl_STUDE__Sem_I__656C112C">
+      <End Role="tbl_SEMESTER_DETAILS" EntitySet="tbl_SEMESTER_DETAILS" />
+      <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_STUDE__St_ID__6477ECF3" Association="Self.FK__tbl_STUDE__St_ID__6477ECF3">
+      <End Role="tbl_STUDENT" EntitySet="tbl_STUDENT" />
+      <End Role="tbl_STUDENT_SEMESTER" EntitySet="tbl_STUDENT_SEMESTER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TEACHE__D_ID__5BE2A6F2" Association="Self.FK__tbl_TEACHE__D_ID__5BE2A6F2">
+      <End Role="tbl_DEPARTMENT" EntitySet="tbl_DEPARTMENT" />
+      <End Role="tbl_TEACHER" EntitySet="tbl_TEACHER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
